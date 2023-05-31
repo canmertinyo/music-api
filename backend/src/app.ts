@@ -23,8 +23,8 @@ export class ExpressServer {
     this.app.use(compression());
   }
 
-  public controllers(controllers: Controller[]) {
-    controllers.forEach((controller: Controller) => {
+  public controllers(controllers: Controller[]): void {
+    return controllers.forEach((controller: Controller) => {
       this.app.use('/api', controller.router);
     });
   }
@@ -32,7 +32,7 @@ export class ExpressServer {
   public listen() {
     return this.app.listen(config.port, () => {
       console.log(`Server is started on port ${this.port}`);
-      logger.log('log', `LOG : Server is started`);
+      logger.log('info', `LOG : Server is started`);
     });
   }
 }

@@ -4,7 +4,7 @@
   "description": "A handwritten backend server for my music api",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node src/main.ts",
+    "start": "npx nodemon src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2",
+    "nodemon": "^2.0.22",
     "winston": "^3.9.0"
   },
   "devDependencies": {

@@ -2,3 +2,277 @@
 {"level":"info","message":"Succesfully connected to the database"}
 {"level":"info","message":"Succesfully connected to the database"}
 {"level":"info","message":"Succesfully connected to the database"}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'Log',
+  timestamp: '2023-05-31T20:19:08.242Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'info',
+  timestamp: '2023-05-31T20:19:29.734Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'bla',
+  timestamp: '2023-05-31T20:19:35.969Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:19:47.818Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: '1',
+  timestamp: '2023-05-31T20:20:20.333Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:20:23.967Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:20:29.678Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:20:30.245Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:20:33.265Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:20:33.844Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:21:17.451Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:21:19.028Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:21:19.591Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:22:07.078Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:22:07.659Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:22:13.282Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:22:13.874Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:19.445Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:20.164Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:35.574Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:36.147Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:40.643Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:41.218Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:42.651Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:43.245Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:51.334Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:51.904Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:58.321Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:34:58.901Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:35:13.702Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:35:14.275Z'
+}
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-05-31T20:46:08.963Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-05-31T20:46:09.638Z'
+}

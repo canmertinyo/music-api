@@ -4,16 +4,16 @@ import { ExpressServer } from './app';
 
 class ExecuteServer {
   db = new DatabaseConfiguration(config.db_uri);
+  expServer = new ExpressServer(config.port, []);
   constructor() {
     this.execute();
   }
 
   public execute() {
     this.db;
+    this.expServer;
   }
 }
 
 const server = new ExecuteServer();
-const expressServer = new ExpressServer(config.port);
 server;
-expressServer;
