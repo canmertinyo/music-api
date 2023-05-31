@@ -1,5 +1,8 @@
-import envalid, { str } from 'envalid';
+import { cleanEnv, num, str } from 'envalid';
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
 
-export const config = envalid.cleanEnv(process.env, {
-  dbUri: str(),
+export default cleanEnv(process.env, {
+  db_uri: str(),
+  port: num({ default: 3001 }),
 });
