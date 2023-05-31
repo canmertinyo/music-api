@@ -8,13 +8,18 @@ export class DatabaseConfiguration {
   public async databaseConnection() {
     return mongoose
       .connect(this.dbUri)
-      .then(() => {
-        console.log('Successfully connected!');
-        logger.log('info', 'Succesfully connected to the database');
+      .then((e) => {
+        console.log('Connected to database!');
+        logger.log('info', 'Succesfully connected to the database', {
+          hostName: e.connections[0].host,
+          database_port: e.connections[0].port,
+          name: e.connections[0].name,
+          keepAlive: e.connections[0].pass,
+        });
       })
       .catch((e: any) => {
-        console.log('Something went wrong', e);
-        logger.error('error', e.message);
+        console.log('Failed to connect database!');
+        logger.error('error', e);
       });
   }
 }
