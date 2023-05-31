@@ -11,6 +11,8 @@ export class ExpressServer {
   constructor(private readonly port: number, controller?: Controller[]) {
     this.app = express();
     this.listen();
+    this.createServer();
+    this.controllers(controller!);
   }
 
   public createServer(): void {
@@ -23,7 +25,7 @@ export class ExpressServer {
 
   public controllers(controllers: Controller[]) {
     controllers.forEach((controller: Controller) => {
-      return this.app.use('/api', controller.router);
+      this.app.use('/api', controller.router);
     });
   }
 
