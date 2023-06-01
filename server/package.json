@@ -1,6 +1,6 @@
 {
   "name": "music-app-backend",
-  "version": "1.0.3-4",
+  "version": "1.0.3-5",
   "description": "A handwritten backend server for my music api",
   "main": "index.js",
   "scripts": {
