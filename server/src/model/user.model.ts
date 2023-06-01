@@ -2,16 +2,41 @@ import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { IUser } from '../utils/interface/user.interface';
 
+export const DOCUMENT_NAME = 'User';
+
 const HASH_ROUNDS = 10;
 
-const UserSchema = new Schema({
-  username: { type: String, required: true, trim: true, select: true },
-  email: { type: String, required: true, trim: true, select: true },
-  password: { type: String, required: true, trim: true, select: true },
-});
+const UserSchema = new Schema(
+  {
+    username: {
+      type: Schema.Types.String,
+      required: true,
+      trim: true,
+      select: true,
+    },
+    email: {
+      type: Schema.Types.String,
+      required: true,
+      trim: true,
+      select: true,
+    },
+    password: {
+      type: Schema.Types.String,
+      required: true,
+      trim: true,
+      select: true,
+    },
+    status: { type: Schema.Types.Boolean, default: true, required: false },
+    createdAt: { type: Schema.Types.Date, required: false, select: true },
+    updatedAt: { type: Schema.Types.Date, required: false, select: true },
+  },
+  {
+    versionKey: true,
+  }
+);
 
 UserSchema.pre('save', async function (next: any) {
-  const thisObj = this as IUser;
+  const thisObj = this as Pick<IUser, 'password' | 'username' | 'email'>;
 
   if (!this.isModified('password')) {
     return next();
@@ -30,4 +55,4 @@ UserSchema.methods.validatePassword = async function (pass: string) {
   return bcrypt.compare(pass, this.password);
 };
 
-export const UserModel = mongoose.model<IUser>('User', UserSchema);
+export const UserModel = mongoose.model<IUser>(DOCUMENT_NAME, UserSchema);
