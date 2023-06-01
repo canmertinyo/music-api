@@ -1,6 +1,6 @@
 {
   "name": "music-app-backend",
-  "version": "1.0.3-5",
+  "version": "1.0.3-6",
   "description": "A handwritten backend server for my music api",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2",
     "nodemon": "^2.0.22",
+    "reflect-metadata": "^0.1.13",
     "winston": "^3.9.0"
   },
   "devDependencies": {

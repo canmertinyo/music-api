@@ -1,5 +1,4 @@
 import express, { Express, Application, Router } from 'express';
-import { Controller } from './utils/interface/Controller';
 import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
@@ -8,7 +7,8 @@ import { logger } from './core/logger';
 import routes from './routes/index';
 
 export class ExpressServer {
-  app: Application;
+  public readonly app: Application;
+  public readonly path: string = '/api/v1/';
   constructor(private readonly port: number) {
     this.app = express();
     this.createServer();
@@ -31,7 +31,7 @@ export class ExpressServer {
   }
 
   public routePaths(): void {
-    this.app.use('/api/v1', routes);
+    this.app.use(this.path, routes);
   }
 
   public listen() {

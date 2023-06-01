@@ -5,7 +5,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   validatePassword(password: string): boolean;
-  _id: Types.ObjectId;
+  _id?: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
   status?: boolean;
