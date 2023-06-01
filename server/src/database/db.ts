@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { logger } from '../utils/logger';
+import { logger } from '../core/logger';
 
 export class DatabaseConfiguration {
   constructor(private readonly dbUri: string) {

@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
 import config from './config/config';
-import { logger } from './utils/logger';
+import { logger } from './core/logger';
 
 export class ExpressServer {
   app: Application;

@@ -276,3 +276,19 @@
   label: 'log',
   timestamp: '2023-05-31T20:46:09.638Z'
 }
+{
+  level: 'info',
+  message: 'LOG : Server is started',
+  label: 'log',
+  timestamp: '2023-06-01T10:51:52.733Z'
+}
+{
+  hostName: 'ac-yyuy2fs-shard-00-01.gzjsydy.mongodb.net',
+  database_port: 27017,
+  name: 'music-app',
+  keepAlive: undefined,
+  level: 'info',
+  message: 'Succesfully connected to the database',
+  label: 'log',
+  timestamp: '2023-06-01T10:51:53.433Z'
+}

@@ -1,7 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <all-musics></all-musics>
+  </div>
 </template>
 
-<script></script>
+<script>
+import allMusics from './components/allMusics.vue';
+
+export default {
+  components: {
+    allMusics,
+  },
+};
+</script>
 
 <style></style>
