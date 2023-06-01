@@ -2,40 +2,32 @@ import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { IUser } from '../utils/interface/user.interface';
 
-const UserSchema = new Schema<IUser>({
+const HASH_ROUNDS = 10;
+
+const UserSchema = new Schema({
   username: { type: String, required: true, trim: true, select: true },
   email: { type: String, required: true, trim: true, select: true },
   password: { type: String, required: true, trim: true, select: true },
 });
 
-UserSchema.pre('save', function (next) {
-  let user = this;
+UserSchema.pre('save', async function (next: any) {
+  const thisObj = this as IUser;
 
-  if (!user.isModified('password')) return next();
+  if (!this.isModified('password')) {
+    return next();
+  }
 
-  bcrypt.genSalt(10, function (err: any, salt: any) {
-    if (err) return next(err);
-
-    bcrypt.hash(user.password, salt, function (err, hash) {
-      if (err) return next(err);
-      user.password = hash;
-      next();
-    });
-  });
+  try {
+    const salt = await bcrypt.genSalt(HASH_ROUNDS);
+    thisObj.password = await bcrypt.hash(thisObj.password, salt);
+    return next();
+  } catch (e) {
+    return next(e);
+  }
 });
 
-UserSchema.methods.comparePassword = function (
-  candidatePassword: any,
-  cb: any
-) {
-  bcrypt.compare(
-    candidatePassword,
-    this.password,
-    function (err: any, isMatch: any) {
-      if (err) return cb(err);
-      cb(null, isMatch);
-    }
-  );
+UserSchema.methods.validatePassword = async function (pass: string) {
+  return bcrypt.compare(pass, this.password);
 };
 
-export const UserModel = mongoose.model('User', UserSchema);
+export const UserModel = mongoose.model<IUser>('User', UserSchema);
