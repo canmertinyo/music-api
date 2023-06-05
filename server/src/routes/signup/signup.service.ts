@@ -1,6 +1,5 @@
-import { UserModel } from '../../model/user.model';
-import { ModifiedUser } from '../../utils/interface/modified.user.type';
-import { signupUser } from './signup.controller';
+import { UserModel } from "../../model/user.model";
+import { ModifiedUser } from "../../utils/interface/modified.user.type";
 
 // const signupController = new SignupController();
 

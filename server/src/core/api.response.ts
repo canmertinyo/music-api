@@ -1,10 +1,8 @@
-import { Response } from 'express';
-
 enum StatusCode {
-  SUCCESS = '10000',
-  FAILURE = '10001',
-  RETRY = '10002',
-  INVALID_ACCESS_TOKEN = '10003',
+  SUCCESS = "10000",
+  FAILURE = "10001",
+  RETRY = "10002",
+  INVALID_ACCESS_TOKEN = "10003",
 }
 
 enum ResponseStatus {
@@ -44,13 +42,13 @@ export class NotFoundResponse extends ApiResponse {
 }
 
 export class BadRequestResponse extends ApiResponse {
-  constructor(message: string = 'Bad request') {
+  constructor(message: string = "Bad request") {
     super(StatusCode.FAILURE, ResponseStatus.BAD_REQUEST, message);
   }
 }
 
 export class InternalErrorResponse extends ApiResponse {
-  constructor(message: string = 'Internal Error') {
+  constructor(message: string = "Internal Error") {
     super(StatusCode.FAILURE, ResponseStatus.INTERNAL_ERROR, message);
   }
 }

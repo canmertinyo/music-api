@@ -1,8 +1,8 @@
-import mongoose, { Schema } from 'mongoose';
-import bcrypt from 'bcrypt';
-import { IUser } from '../utils/interface/user.interface';
+import mongoose, { Schema } from "mongoose";
+import bcrypt from "bcrypt";
+import { IUser } from "../utils/interface/user.interface";
 
-export const DOCUMENT_NAME = 'User';
+export const DOCUMENT_NAME = "User";
 
 const HASH_ROUNDS = 10;
 
@@ -32,10 +32,10 @@ const UserSchema = new Schema({
   updatedAt: { type: Schema.Types.Date, required: false, select: true },
 });
 
-UserSchema.pre('save', async function (next: any) {
-  const thisObj = this as Pick<IUser, 'password' | 'username' | 'email'>;
+UserSchema.pre("save", async function (next: any) {
+  const thisObj = this as Pick<IUser, "password" | "username" | "email">;
 
-  if (!this.isModified('password')) {
+  if (!this.isModified("password")) {
     return next();
   }
 

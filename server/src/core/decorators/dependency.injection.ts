@@ -1,6 +1,4 @@
-// Dependency Injection Container
-import 'reflect-metadata';
-import { SignupService } from '../../routes/signup/signup.service';
+import "reflect-metadata";
 
 export class Container {
   private dependencies = new Map<string, any>();
@@ -18,8 +16,7 @@ export class Container {
   }
 }
 
-// Decorator
-export function MyInjectable() {
+export function Inject() {
   return function (target: any) {
     const original = target;
 
@@ -27,7 +24,7 @@ export function MyInjectable() {
       const container = new Container();
       const instance: any = Reflect.construct(constructor, args);
       const dependencies =
-        Reflect.getMetadata('design:paramtypes', target) || [];
+        Reflect.getMetadata("design:paramtypes", target) || [];
       dependencies.forEach((dependency: any, index: any) => {
         const dependencyName = dependency.name;
         const dependencyInstance = container.resolve(dependencyName);
@@ -45,7 +42,3 @@ export function MyInjectable() {
     return f;
   };
 }
-
-// const container = new Container();
-// container.register('UserService', UserService);
-// const loggerService = container.resolve<LoggerService>('LoggerService');

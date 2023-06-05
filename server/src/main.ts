@@ -1,6 +1,6 @@
-import { DatabaseConfiguration } from './database/db';
-import config from './config/config';
-import { ExpressServer } from './app';
+import { DatabaseConfiguration } from "./database/db";
+import config from "./config/config";
+import { ExpressServer } from "./app";
 
 class ExecuteServer {
   db = new DatabaseConfiguration(config.db_uri);
