@@ -1,14 +1,14 @@
-import express, { Express, Application, Router } from 'express';
-import helmet from 'helmet';
-import cors from 'cors';
-import compression from 'compression';
-import config from './config/config';
-import { logger } from './core/logger';
-import routes from './routes/index';
+import express, { Express, Application, Router } from "express";
+import helmet from "helmet";
+import cors from "cors";
+import compression from "compression";
+import config from "./config/config";
+import { logger } from "./core/logger";
+import { expressRouter } from "./routes/index";
 
 export class ExpressServer {
   public readonly app: Application;
-  public readonly path: string = '/api/v1/';
+  public readonly path: string = "/api/v1/";
   constructor(private readonly port: number) {
     this.app = express();
     this.createServer();
@@ -17,11 +17,11 @@ export class ExpressServer {
   }
 
   public createServer(): void {
-    this.app.use(express.json({ limit: '10mb' }));
+    this.app.use(express.json({ limit: "10mb" }));
     this.app.use(
       express.urlencoded({
         extended: true,
-        limit: '10mb',
+        limit: "10mb",
         parameterLimit: 50000,
       })
     );
@@ -31,13 +31,14 @@ export class ExpressServer {
   }
 
   public routePaths(): void {
-    this.app.use(this.path, routes);
+    //burada foreach ile storedRoutes döneceksin
+    this.app.use(this.path, expressRouter);
   }
 
   public listen() {
     return this.app.listen(config.port, () => {
       console.log(`Server is started on port ${this.port}`);
-      logger.log('info', `LOG : Server is started`);
+      logger.log("info", `LOG : Server is started`);
     });
   }
 }

@@ -1,11 +1,8 @@
-import express from 'express';
+import express, { Router } from "express";
+import { signupUser } from "./signup/signup.controller";
+import MakeRouter from "./router.factory";
 
-import { signupUser } from './signup/signup.controller';
+export const expressRouter = express.Router();
 
-// const signupController = new SignupController();
-
-const router = express.Router();
-
-router.use('/signup', signupUser);
-
-export default router;
+const router = new MakeRouter(expressRouter);
+router.generate("/signup", signupUser);
