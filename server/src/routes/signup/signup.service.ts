@@ -10,7 +10,8 @@ export const signUser = async function (user: ModifiedUser) {
       ...user,
       token: createToken(user),
     };
-    return await UserModel.create(createdUser);
+    await UserModel.create(createdUser);
+    return createdUser;
   } catch (error: any) {
     throw new Error(error.message);
   }

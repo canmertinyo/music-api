@@ -4,7 +4,7 @@ import { signUser } from "./signup.service";
 
 // const signupService = new SignupService();
 
-export const signupUser = (req: Request, res: Response) => {
+export const signupUser = async (req: Request, res: Response) => {
   const { email, password, username } = req.body;
 
   const user: ModifiedUser = { email, password, username };
