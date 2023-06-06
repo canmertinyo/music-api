@@ -2,9 +2,7 @@ import mongoose from "mongoose";
 import { logger } from "../core/logger";
 
 export class DatabaseConfiguration {
-  constructor(private readonly dbUri: string) {
-    this.databaseConnection();
-  }
+  constructor(private readonly dbUri: string) {}
   public async databaseConnection() {
     return mongoose
       .connect(this.dbUri)
