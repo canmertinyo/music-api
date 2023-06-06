@@ -5,4 +5,5 @@ dotenv.config({ path: ".env" });
 export default cleanEnv(process.env, {
   db_uri: str(),
   port: num({ default: 3001 }),
+  JWT_SECRET: str(),
 });

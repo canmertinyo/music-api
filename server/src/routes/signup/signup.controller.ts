@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
-import { ModifiedUser } from '../../utils/interface/modified.user.type';
-import { signUser } from './signup.service';
+import { Request, Response } from "express";
+import { ModifiedUser } from "../../utils/interface/modified.user.type";
+import { signUser } from "./signup.service";
 
 // const signupService = new SignupService();
 

@@ -9,27 +9,25 @@ const HASH_ROUNDS = 10;
 const UserSchema = new Schema({
   username: {
     type: Schema.Types.String,
-    required: true,
     trim: true,
     select: true,
     unique: true,
   },
   email: {
     type: Schema.Types.String,
-    required: true,
     trim: true,
     select: true,
     unique: true,
   },
   password: {
     type: Schema.Types.String,
-    required: true,
     trim: true,
     select: true,
   },
   status: { type: Schema.Types.Boolean, default: true, required: false },
   createdAt: { type: Schema.Types.Date, required: false, select: true },
   updatedAt: { type: Schema.Types.Date, required: false, select: true },
+  token: { type: Schema.Types.String, select: true },
 });
 
 UserSchema.pre("save", async function (next: any) {

@@ -1,6 +1,6 @@
-import { IUser } from './user.interface';
+import { IUser } from "./user.interface";
 
 export type ModifiedUser = Pick<
   IUser,
-  'username' | 'password' | 'email' | '_id'
+  "username" | "password" | "email" | "_id"
 >;

@@ -9,4 +9,5 @@ export interface IUser extends Document {
   createdAt: Date;
   updatedAt: Date;
   status?: boolean;
+  token: string;
 }
