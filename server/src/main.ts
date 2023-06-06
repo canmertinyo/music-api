@@ -14,6 +14,7 @@ class Server {
   constructor() {}
 
   private validateBeforeExecute() {
+    // console.log(config.JWT_PRIVATE_KEY);
     let errors = [];
     if (config.NODE_ENV !== "development") {
       errors.push(

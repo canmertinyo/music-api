@@ -1,10 +1,10 @@
 import { UserModel } from "../../model/user.model";
-import { ModifiedUser } from "../../utils/interface/modified.user.type";
+import { RegisterUser } from "../../utils/interface/modified.user.type";
 import { createToken } from "../../core/jwt/token";
 
 // const signupController = new SignupController();
 
-export const signUser = async function (user: ModifiedUser) {
+export const signUser = async function (user: RegisterUser) {
   try {
     const createdUser = {
       ...user,
