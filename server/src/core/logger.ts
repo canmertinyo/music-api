@@ -1,11 +1,18 @@
 import winston, { format } from "winston";
-const { combine, label, prettyPrint, timestamp } = format;
+const { combine, prettyPrint, timestamp } = format;
 
 export const logger = winston.createLogger({
-  level: "info",
-  format: combine(label({ label: "log" }), timestamp(), prettyPrint()),
+  format: combine(timestamp(), prettyPrint()),
   transports: [
-    new winston.transports.File({ filename: "error.log", level: "error" }),
-    new winston.transports.File({ filename: "combined.log" }),
+    new winston.transports.File({
+      dirname: "log",
+      filename: "error.log",
+      level: "error",
+    }),
+    new winston.transports.File({
+      filename: "combined.log",
+      dirname: "log",
+      level: "info",
+    }),
   ],
 });
