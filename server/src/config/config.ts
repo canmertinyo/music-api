@@ -6,4 +6,8 @@ export default cleanEnv(process.env, {
   db_uri: str(),
   port: num({ default: 3001 }),
   JWT_SECRET: str(),
+  NODE_ENV: str({
+    default: "development",
+    choices: ["development", "production"],
+  }),
 });
