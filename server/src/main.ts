@@ -8,43 +8,58 @@ import {
   BlankDbUriException,
 } from "./exceptions/";
 
-class ExecuteServer {
-  db = new DatabaseConfiguration(config.db_uri);
-  expServer = new ExpressServer(config.port);
-  constructor() {
-    this.validateBeforeExecute();
-    this.execute();
-  }
+class Server {
+  private readonly db = new DatabaseConfiguration(config.db_uri);
+  private readonly expServer = new ExpressServer(config.port);
+  constructor() {}
 
-  public validateBeforeExecute() {
+  private validateBeforeExecute() {
+    let errors = [];
     if (config.NODE_ENV !== "development") {
-      throw new NodeEnvException(
-        `You can't server because you are in ${config.NODE_ENV} mode! please switch to 'development' mode if you want to change something`
+      errors.push(
+        new NodeEnvException(
+          `You can't server because you are in ${config.NODE_ENV} mode! please switch to 'development' mode if you want to change something`
+        )
       );
     }
     if (!config.port) {
-      throw new PortException(
-        `Please define your port before launching the app! ${config.port}`
+      errors.push(
+        new PortException(
+          `Please define your port before launching the app! ${config.port}`
+        )
       );
     }
     if (!config.JWT_SECRET) {
-      throw new BlankJwtSecretException(
-        `Jwt secret code can't be empty please define it before launch the app!`
+      errors.push(
+        new BlankJwtSecretException(
+          `Jwt secret code can't be empty please define it before launch the app!`
+        )
       );
     }
 
     if (!config.db_uri) {
-      throw new BlankDbUriException(
-        `Db uri can't be blank or undefined. Please add your db uri before launching the app!`
+      errors.push(
+        new BlankDbUriException(
+          `Db uri can't be blank or undefined. Please add your db uri before launching the app!`
+        )
       );
+    }
+
+    if (errors.length > 0) {
+      throw errors;
     }
   }
 
   public execute() {
-    this.db;
-    this.expServer;
+    try {
+      this.validateBeforeExecute();
+      this.db.connect();
+      this.expServer.start();
+    } catch (error) {
+      throw new Error(`An error occurred while starting the server ${error}`);
+    }
   }
 }
 
-const server = new ExecuteServer();
-server;
+const server = new Server();
+server.execute();

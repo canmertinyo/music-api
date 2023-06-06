@@ -22,4 +22,12 @@ export class DatabaseConfiguration {
         logger.error("error", e);
       });
   }
+
+  public connect() {
+    try {
+      this.databaseConnection();
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  }
 }

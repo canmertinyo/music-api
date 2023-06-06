@@ -7,10 +7,13 @@ import { logger } from "./core/logger";
 import { expressRouter } from "./routes/index";
 
 export class ExpressServer {
-  public readonly app: Application;
-  public readonly path: string = "/api/v1/";
+  public app: Application;
+  public path: string = "/api/v1/";
   constructor(private readonly port: number) {
     this.app = express();
+  }
+
+  public start() {
     this.createServer();
     this.routePaths();
     this.listen();
@@ -31,7 +34,6 @@ export class ExpressServer {
   }
 
   public routePaths(): void {
-    //burada foreach ile storedRoutes döneceksin
     this.app.use(this.path, expressRouter);
   }
 
