@@ -9,7 +9,7 @@ export const signupUser = (req: Request, res: Response) => {
 
   const user: ModifiedUser = { email, password, username };
 
-  const currentUser = signUser(user);
+  const currentUser: any = signUser(user);
 
   return res.json({ currentUser });
 };

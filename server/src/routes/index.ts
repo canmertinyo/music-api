@@ -5,4 +5,4 @@ import MakeRouter from "./router.factory";
 export const expressRouter = express.Router();
 
 const router = new MakeRouter(expressRouter);
-router.generate("/signup", signupUser);
+router.generatePOST("/signup", signupUser);
