@@ -3,25 +3,28 @@ import { createToken, verifyToken } from "../../core/jwt/token";
 import { UserModel } from "../../model/user.model";
 import { LoginUser } from "../../utils/interface/modified.user.type";
 import { IUser } from "../../utils/interface/user.interface";
+import {
+  InvalidPasswordException,
+  UserNotFoundException,
+  LoginException,
+} from "../../exceptions";
 
 // const loginController = new LoginController();
-
-export const loginUser = async function (email: string, password: string) {
+// di ile class yapısına geçilecek.
+export const loginUser = async function (
+  email: string,
+  password: string
+): Promise<string> {
   try {
     const login = await UserModel.findOne({ email });
 
-    if (!login) {
-      //add exception
-      throw new Error("No user found with email");
-    }
+    if (!login) throw new UserNotFoundException("No user found with email");
 
-    if (await login.validatePassword(password)) {
-      return createToken(login);
-    } else {
-      //add exception
-      throw new Error("Mismaatch!");
-    }
+    if (!login.validatePassword(password))
+      throw new InvalidPasswordException("Passwords is not matching!");
+
+    return createToken(login);
   } catch (error: any) {
-    throw new Error(error.message);
+    throw new LoginException(error.message);
   }
 };
