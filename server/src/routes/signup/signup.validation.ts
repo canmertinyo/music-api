@@ -4,7 +4,7 @@ export class SignupValidation {
   public signup() {
     try {
       const schema = Joi.object({
-        username: Joi.string().alphanum().min(3).max(12).required().trim(),
+        username: Joi.string().min(3).max(12).required().trim(),
         password: Joi.string()
           .required()
           .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))

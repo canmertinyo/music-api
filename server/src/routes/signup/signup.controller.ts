@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { RegisterUser } from "../../utils/interface/modified.user.type";
 import { signUser } from "./signup.service";
-import { HttpStatusCode } from "../../core/api.response";
+import { HttpStatusCode } from "../../utils/status_codes/api.response";
 
 // const signupService = new SignupService();
 
@@ -14,7 +14,7 @@ export const signupUser = async (
 
     const user: RegisterUser = { email, password, username };
 
-    const currentUser = await signUser(user);
+    await signUser(user);
 
     return res
       .status(HttpStatusCode.CREATED)

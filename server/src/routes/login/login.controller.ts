@@ -1,8 +1,11 @@
 import { Request, Response } from "express";
-import { loginUser } from "./login.service";
-import { HttpStatusCode } from "../../core/api.response";
+import LoginService from "./login.service";
+import { HttpStatusCode } from "../../utils/status_codes/api.response";
+import { Container } from "../../core/decorators/dependency.injection";
 
-// const signupService = new SignupService();
+const container = new Container();
+container.register("LoginService", new LoginService());
+const loginService = container.resolve<LoginService>("LoginService");
 
 export const loginUserController = async (
   req: Request,
@@ -11,7 +14,7 @@ export const loginUserController = async (
   try {
     const { email, password } = req.body;
 
-    const currentUser = await loginUser(email, password);
+    const currentUser = await loginService.loginUser(email, password);
 
     return res
       .status(HttpStatusCode.CREATED)

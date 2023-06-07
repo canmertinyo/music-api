@@ -6,6 +6,8 @@ import {
   BlankJwtSecretException,
   PortException,
   BlankDbUriException,
+  BlankJwtPrivateKeyException,
+  BlankJwtPublicKeyException,
 } from "./exceptions/";
 
 class Server {
@@ -14,7 +16,6 @@ class Server {
   constructor() {}
 
   private validateBeforeExecute() {
-    // console.log(config.JWT_PRIVATE_KEY);
     let errors = [];
     if (config.NODE_ENV !== "development") {
       errors.push(
@@ -42,6 +43,32 @@ class Server {
       errors.push(
         new BlankDbUriException(
           `Db uri can't be blank or undefined. Please add your db uri before launching the app!`
+        )
+      );
+    }
+
+    if (!config.JWT_PRIVATE_KEY) {
+      errors.push(
+        new BlankJwtPrivateKeyException(
+          `Jwt private key can't be empty, generate your jwt private and public key to use this api!
+          
+          https://travistidwell.com/jsencrypt/demo/ you can generate your own keys here via clicking the link.
+
+          NOTE : Do not remove the beginning and ending tags.
+          `
+        )
+      );
+    }
+
+    if (!config.JWT_PUBLIC_KEY) {
+      errors.push(
+        new BlankJwtPublicKeyException(
+          `Jwt public key can't be empty, generate your jwt private and public key to use this api!
+          
+          https://travistidwell.com/jsencrypt/demo/ you can generate your own keys here via clicking the link.
+
+          NOTE : Do not remove the beginning and ending tags.
+          `
         )
       );
     }

@@ -11,4 +11,5 @@ export default cleanEnv(process.env, {
     choices: ["development", "production"],
   }),
   JWT_PRIVATE_KEY: str(),
+  JWT_PUBLIC_KEY: str(),
 });
