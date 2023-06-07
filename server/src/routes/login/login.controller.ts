@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
-import { LoginUser } from "../../utils/interface/modified.user.type";
 import { loginUser } from "./login.service";
 import { HttpStatusCode } from "../../core/api.response";
-import { IUser } from "../../utils/interface/user.interface";
 
 // const signupService = new SignupService();
 

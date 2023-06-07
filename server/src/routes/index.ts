@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express from "express";
 import { signupUser } from "./signup/signup.controller";
 import GenerateRouter from "./router.factory";
 import { SignupValidation } from "./signup/signup.validation";

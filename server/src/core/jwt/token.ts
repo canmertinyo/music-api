@@ -1,9 +1,5 @@
 import jwt from "jsonwebtoken";
-import { loginUser } from "../../routes/login/login.service";
-import {
-  LoginUser,
-  RegisterUser,
-} from "../../utils/interface/modified.user.type";
+import { RegisterUser } from "../../utils/interface/modified.user.type";
 import config from "../../config/config";
 import { IToken } from "../../utils/interface/token.interface";
 

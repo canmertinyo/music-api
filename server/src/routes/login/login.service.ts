@@ -1,8 +1,5 @@
-import { create } from "domain";
-import { createToken, verifyToken } from "../../core/jwt/token";
+import { createToken } from "../../core/jwt/token";
 import { UserModel } from "../../model/user.model";
-import { LoginUser } from "../../utils/interface/modified.user.type";
-import { IUser } from "../../utils/interface/user.interface";
 import {
   InvalidPasswordException,
   UserNotFoundException,

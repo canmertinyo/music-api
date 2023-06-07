@@ -1,4 +1,4 @@
-import { Router, Handler } from "express";
+import { Router } from "express";
 
 export default class GenerateRouter {
   constructor(public readonly router: Router) {

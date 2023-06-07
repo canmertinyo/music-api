@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { IToken } from "../../utils/interface/token.interface";
 import { verifyToken } from "../jwt/token";
 import { UserModel } from "../../model/user.model";
 
