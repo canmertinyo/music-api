@@ -20,8 +20,8 @@ export class LoginController {
         const currentUser = await loginService.loginUser(email, password);
 
         return res
-          .status(HttpStatusCode.CREATED)
-          .json({ status: "created", userInfo: currentUser });
+          .status(HttpStatusCode.ACCEPTED)
+          .json({ status: "Success", userInfo: currentUser });
       } catch (error: any) {
         throw new Error(error.message);
       }

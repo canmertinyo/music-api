@@ -12,4 +12,5 @@ export default cleanEnv(process.env, {
   }),
   JWT_PRIVATE_KEY: str(),
   JWT_PUBLIC_KEY: str(),
+  HASH_ROUNDS: num(),
 });

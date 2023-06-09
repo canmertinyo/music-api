@@ -1,10 +1,9 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 import { IUser } from "../utils/interface/user.interface";
+import config from "../config/config";
 
 export const DOCUMENT_NAME = "User";
-
-const HASH_ROUNDS = 10;
 
 const UserSchema = new Schema({
   username: {
@@ -31,17 +30,15 @@ const UserSchema = new Schema({
 });
 
 UserSchema.pre("save", async function (next: any) {
-  const thisObj = this as Pick<IUser, "password" | "username" | "email">;
+  const thisObj = this as Pick<IUser, "password">;
 
-  if (!this.isModified("password")) {
-    return next();
-  }
+  if (!this.isModified("password")) return next();
 
   try {
-    const salt = await bcrypt.genSalt(HASH_ROUNDS);
+    const salt = await bcrypt.genSalt(config.HASH_ROUNDS);
     thisObj.password = await bcrypt.hash(thisObj.password, salt);
     return next();
-  } catch (e) {
+  } catch (e: unknown) {
     return next(e);
   }
 });
