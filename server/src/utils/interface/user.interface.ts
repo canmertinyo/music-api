@@ -10,4 +10,5 @@ export interface IUser extends Document {
   updatedAt: Date;
   status?: boolean;
   token: string;
+  role: string;
 }

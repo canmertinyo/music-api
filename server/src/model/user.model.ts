@@ -3,31 +3,42 @@ import bcrypt from "bcrypt";
 import { IUser } from "../utils/interface/user.interface";
 import config from "../config/config";
 
+enum Roles {
+  USER = "user",
+  ADMIN = "admin",
+}
+
 export const DOCUMENT_NAME = "User";
 
-const UserSchema = new Schema({
-  username: {
-    type: Schema.Types.String,
-    trim: true,
-    select: true,
-    unique: true,
+const UserSchema = new Schema(
+  {
+    username: {
+      type: Schema.Types.String,
+      trim: true,
+      select: true,
+      unique: true,
+    },
+    email: {
+      type: Schema.Types.String,
+      trim: true,
+      select: true,
+      unique: true,
+    },
+    password: {
+      type: Schema.Types.String,
+      trim: true,
+      select: true,
+    },
+    status: { type: Schema.Types.Boolean, default: true, required: false },
+    createdAt: { type: Schema.Types.Date, required: false, select: true },
+    updatedAt: { type: Schema.Types.Date, required: false, select: true },
+    token: { type: Schema.Types.String, select: true },
+    role: { type: Schema.Types.String, default: Roles.USER },
   },
-  email: {
-    type: Schema.Types.String,
-    trim: true,
-    select: true,
-    unique: true,
-  },
-  password: {
-    type: Schema.Types.String,
-    trim: true,
-    select: true,
-  },
-  status: { type: Schema.Types.Boolean, default: true, required: false },
-  createdAt: { type: Schema.Types.Date, required: false, select: true },
-  updatedAt: { type: Schema.Types.Date, required: false, select: true },
-  token: { type: Schema.Types.String, select: true },
-});
+  {
+    timestamps: true,
+  }
+);
 
 UserSchema.pre("save", async function (next: any) {
   const thisObj = this as Pick<IUser, "password">;
