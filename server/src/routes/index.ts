@@ -6,28 +6,34 @@ import { validateSchema } from "../core/middlewares/schema.factory";
 import ValidateLogin from "./login/login.validation";
 import { LoginController } from "./login/login.controller";
 import { Container } from "../core/decorators/dependency.injection";
+import { resolveContainerFactory } from "../core/decorators/resolve.factory";
 
 export const expressRouter = express.Router();
 
 //Container ----------------------------------------------------------------------------------------
-const container = new Container();
-container.register("ValidateLogin", new ValidateLogin());
-container.register("SignupValidation", new SignupValidation());
-container.register("LoginController", new LoginController());
+
 //Container ----------------------------------------------------------------------------------------
 
 //Resolve ----------------------------------------------------------------------------------------
-const validateLogin = container.resolve<ValidateLogin>("ValidateLogin");
-const signupValidation =
-  container.resolve<SignupValidation>("SignupValidation");
-const loginController = container.resolve<LoginController>("LoginController");
+
+const validateLogin = resolveContainerFactory("ValidateLogin", ValidateLogin);
+const loginController = resolveContainerFactory(
+  "LoginController",
+  LoginController
+);
+const signupController = resolveContainerFactory("signupUser", signupUser);
+const signupValidation = resolveContainerFactory(
+  "SignupValidation",
+  SignupValidation
+);
+
 //Container ----------------------------------------------------------------------------------------
 
 const generateRouter = new GenerateRouter(expressRouter);
 generateRouter.POST(
   "/signup",
   validateSchema(signupValidation.signup()),
-  signupUser
+  signupController
 );
 generateRouter.POST(
   "/login",

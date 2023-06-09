@@ -15,9 +15,8 @@ export default class LoginService {
 
       if (!login) throw new UserNotFoundException("No user found with email");
 
-      if (login.validatePassword(password))
-        throw new InvalidPasswordException("Passwords is not matching!");
-
+      if ((await login.validatePassword(password)) !== true)
+        throw new InvalidPasswordException("Passwords are not matching!");
       return createToken(login);
     } catch (error: any) {
       throw new LoginException(error.message);
