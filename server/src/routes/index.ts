@@ -14,7 +14,6 @@ const container = new Container();
 container.register("ValidateLogin", new ValidateLogin());
 container.register("SignupValidation", new SignupValidation());
 container.register("LoginController", new LoginController());
-// container.register("GenerateRouter", new GenerateRouter(expressRouter));
 //Container ----------------------------------------------------------------------------------------
 
 //Resolve ----------------------------------------------------------------------------------------
@@ -22,7 +21,6 @@ const validateLogin = container.resolve<ValidateLogin>("ValidateLogin");
 const signupValidation =
   container.resolve<SignupValidation>("SignupValidation");
 const loginController = container.resolve<LoginController>("LoginController");
-// const generateRouter = container.resolve<Ge>
 //Container ----------------------------------------------------------------------------------------
 
 const generateRouter = new GenerateRouter(expressRouter);

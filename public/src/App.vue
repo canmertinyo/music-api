@@ -1,17 +1,16 @@
 <template>
-  <div>
-    <all-musics></all-musics>
-  </div>
+  <login-page></login-page>
 </template>
 
 <script>
-import allMusics from './components/allMusics.vue';
-
+import LoginPage from './components/LoginPage.vue';
 export default {
-  components: {
-    allMusics,
-  },
-};
+  components : {
+    LoginPage
+  }
+}
 </script>
 
-<style></style>
+<style>
+
+</style>
