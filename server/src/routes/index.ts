@@ -5,16 +5,9 @@ import { SignupValidation } from "./signup/signup.validation";
 import { validateSchema } from "../core/middlewares/schema.factory";
 import ValidateLogin from "./login/login.validation";
 import { LoginController } from "./login/login.controller";
-import { Container } from "../core/decorators/dependency.injection";
-import { resolveContainerFactory } from "../core/decorators/resolve.factory";
+import { resolveContainerFactory } from "../core/decorators/dependency.factory";
 
 export const expressRouter = express.Router();
-
-//Container ----------------------------------------------------------------------------------------
-
-//Container ----------------------------------------------------------------------------------------
-
-//Resolve ----------------------------------------------------------------------------------------
 
 const validateLogin = resolveContainerFactory("ValidateLogin", ValidateLogin);
 const loginController = resolveContainerFactory(
@@ -26,8 +19,6 @@ const signupValidation = resolveContainerFactory(
   "SignupValidation",
   SignupValidation
 );
-
-//Container ----------------------------------------------------------------------------------------
 
 const generateRouter = new GenerateRouter(expressRouter);
 generateRouter.POST(
