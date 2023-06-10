@@ -20,7 +20,6 @@ export class DatabaseConfiguration {
         logger.error("error", e);
       });
   }
-
   public connect() {
     try {
       this.databaseConnection();

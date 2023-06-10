@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RegisterUser } from "../../utils/interface/modified.user.type";
+import { RegisterUser } from "../../utils/interface";
 import { signUser } from "./signup.service";
 import { HttpStatusCode } from "../../utils/status_codes/api.response";
 

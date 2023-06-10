@@ -1,5 +1,5 @@
 import { UserModel } from "../../model/user.model";
-import { RegisterUser } from "../../utils/interface/modified.user.type";
+import { RegisterUser } from "../../utils/interface";
 import { createToken } from "../../core/jwt/token";
 
 // const signupController = new SignupController();

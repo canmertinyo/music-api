@@ -13,10 +13,9 @@ import {
 class Server {
   private readonly db = new DatabaseConfiguration(config.db_uri);
   private readonly expServer = new ExpressServer(config.port);
-  constructor() {}
 
   private validateBeforeExecute() {
-    let errors = [];
+    let errors: Array<Error> = [];
     if (config.NODE_ENV !== "development") {
       errors.push(
         new NodeEnvException(

@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
-import { RegisterUser } from "../../utils/interface/modified.user.type";
 import config from "../../config/config";
-import { IToken } from "../../utils/interface/token.interface";
+import { IToken, RegisterUser } from "../../utils/interface";
 
 export const createToken = (user: RegisterUser) => {
   const payload = {
