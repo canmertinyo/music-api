@@ -2,7 +2,7 @@ import { IUser } from "./user.interface";
 
 export type RegisterUser = Pick<
   IUser,
-  "username" | "password" | "email" | "_id"
+  "username" | "password" | "email" | "_id" | "status"
 >;
 
 export type LoginUser = Pick<

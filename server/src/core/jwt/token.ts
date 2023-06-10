@@ -8,6 +8,7 @@ export const createToken = (user: RegisterUser) => {
     username: user.username,
     password: user.password,
     email: user.email,
+    validation: user.status,
   };
   const jwtSecret = config.JWT_SECRET as string;
   const token = jwt.sign(payload, jwtSecret, { expiresIn: "2d" });

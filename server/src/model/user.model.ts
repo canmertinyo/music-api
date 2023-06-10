@@ -29,7 +29,7 @@ const UserSchema = new Schema(
       trim: true,
       select: true,
     },
-    status: { type: Schema.Types.Boolean, default: true, required: false },
+    status: { type: Schema.Types.Boolean, default: false, required: false },
     createdAt: { type: Schema.Types.Date, required: false, select: true },
     updatedAt: { type: Schema.Types.Date, required: false, select: true },
     token: { type: Schema.Types.String, select: true },

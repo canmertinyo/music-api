@@ -17,6 +17,7 @@ export default class LoginService {
 
       if ((await login.validatePassword(password)) !== true)
         throw new InvalidPasswordException("Passwords are not matching!");
+      login.status = true;
       return createToken(login);
     } catch (error: any) {
       throw new LoginException(error.message);
