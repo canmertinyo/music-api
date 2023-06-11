@@ -9,7 +9,7 @@ import {
 } from "../exceptions";
 
 export function validateMainBeforeExecute() {
-  let errors: Array<Error> = [];
+  const errors: Array<Error> = [];
   if (config.NODE_ENV !== "development") {
     errors.push(
       new NodeEnvException(
@@ -18,37 +18,22 @@ export function validateMainBeforeExecute() {
     );
   }
   if (!config.port) {
-    errors.push(
-      new PortException(
-        `Please define your port before launching the app! ${config.port}`
-      )
-    );
+    errors.push(new PortException(`Please define your port before launching the app! ${config.port}`));
   }
   if (!config.JWT_SECRET) {
-    errors.push(
-      new BlankJwtSecretException(
-        `Jwt secret code can't be empty please define it before launch the app!`
-      )
-    );
+    errors.push(new BlankJwtSecretException(`Jwt secret code can't be empty please define it before launch the app!`));
   }
 
   if (!config.db_uri) {
     errors.push(
-      new BlankDbUriException(
-        `Db uri can't be blank or undefined. Please add your db uri before launching the app!`
-      )
+      new BlankDbUriException(`Db uri can't be blank or undefined. Please add your db uri before launching the app!`)
     );
   }
 
   if (!config.JWT_PRIVATE_KEY) {
     errors.push(
       new BlankJwtPrivateKeyException(
-        `Jwt private key can't be empty, generate your jwt private and public key to use this api!
-          
-          https://travistidwell.com/jsencrypt/demo/ you can generate your own keys here via clicking the link.
-
-          NOTE : Do not remove the beginning and ending tags.
-          `
+        `Jwt private key can't be empty, generate your jwt private and public key to use this api! Generate your keys here : https://travistidwell.com/jsencrypt/demo/`
       )
     );
   }
@@ -56,12 +41,7 @@ export function validateMainBeforeExecute() {
   if (!config.JWT_PUBLIC_KEY) {
     errors.push(
       new BlankJwtPublicKeyException(
-        `Jwt public key can't be empty, generate your jwt private and public key to use this api!
-          
-          https://travistidwell.com/jsencrypt/demo/ you can generate your own keys here via clicking the link.
-
-          NOTE : Do not remove the beginning and ending tags.
-          `
+        `Jwt private key can't be empty, generate your jwt private and public key to use this api! Generate your keys here : https://travistidwell.com/jsencrypt/demo/`
       )
     );
   }

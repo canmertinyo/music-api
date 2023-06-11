@@ -1,7 +1,8 @@
 import winston from "winston";
+const { combine, prettyPrint, timestamp } = winston.format;
 
 export const logger = winston.createLogger({
-  format: winston.format.json(),
+  format: combine(timestamp(), prettyPrint()),
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({
