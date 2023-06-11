@@ -4,19 +4,18 @@ import { ExpressServer } from "./app";
 import { validateMainBeforeExecute } from "./utils/validate.main";
 
 class Server {
-  private readonly db = new DatabaseConfiguration(config.db_uri);
-  private readonly expServer = new ExpressServer(config.port);
-
-  public execute() {
+  constructor() {
     try {
+      const db = new DatabaseConfiguration(config.db_uri);
+      const expServer = new ExpressServer(config.port);
       validateMainBeforeExecute();
-      this.db.connect();
-      this.expServer.start();
+
+      db.connect();
+      expServer.start();
     } catch (error) {
-      throw new Error(`An error occurred while starting the server ${error}`);
+      throw new Error(`An error occurred while starting the server: ${error}`);
     }
   }
 }
 
 const server = new Server();
-server.execute();
