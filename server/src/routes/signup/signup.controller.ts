@@ -1,14 +1,13 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { RegisterUser } from "../../utils/interface";
 import { signUser } from "./signup.service";
 import { HttpStatusCode } from "../../utils/status_codes/api.response";
 
-// const signupService = new SignupService();
-
 export const signupUser = async (
   req: Request,
-  res: Response
-): Promise<Response<any, Record<string, any>>> => {
+  res: Response,
+  next: NextFunction
+): Promise<Response<any, Record<string, any>> | undefined> => {
   try {
     const { email, password, username } = req.body;
 
@@ -16,10 +15,8 @@ export const signupUser = async (
 
     await signUser(user);
 
-    return res
-      .status(HttpStatusCode.CREATED)
-      .json({ status: "created", userInfo: user });
+    return res.status(HttpStatusCode.CREATED).json({ status: "created", userInfo: user });
   } catch (error: any) {
-    throw new Error(error.message);
+    next(error);
   }
 };
