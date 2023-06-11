@@ -2,17 +2,12 @@ import { UserModel } from "../../model/user.model";
 import { RegisterUser } from "../../utils/interface";
 import { createToken } from "../../core/jwt/token";
 
-// const signupController = new SignupController();
-
-export const signUser = async function (user: RegisterUser) {
+export const createUserAndToken = async function (user: RegisterUser) {
   try {
-    const createdUser = {
-      ...user,
-      token: createToken(user),
-    };
+    const createdUser = { ...user, token: createToken(user) };
     await UserModel.create(createdUser);
     return createdUser;
   } catch (error: any) {
-    throw new Error(error.message);
+    throw error;
   }
 };

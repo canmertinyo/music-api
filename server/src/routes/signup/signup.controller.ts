@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { RegisterUser } from "../../utils/interface";
-import { signUser } from "./signup.service";
+import { createUserAndToken } from "./signup.service";
 import { HttpStatusCode } from "../../utils/status_codes/api.response";
 
 export const signupUser = async (
@@ -13,7 +13,7 @@ export const signupUser = async (
 
     const user: RegisterUser = { email, password, username };
 
-    await signUser(user);
+    await createUserAndToken(user);
 
     return res.status(HttpStatusCode.CREATED).json({ status: "created", userInfo: user });
   } catch (error: any) {
