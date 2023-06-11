@@ -3,28 +3,23 @@ import { logger } from "../core/logger";
 
 export class DatabaseConfiguration {
   constructor(private readonly dbUri: string) {}
-  public async databaseConnection() {
-    return mongoose
-      .connect(this.dbUri)
-      .then((e) => {
-        console.log("Connected to database!");
-        logger.log("info", "Succesfully connected to the database", {
-          hostName: e.connections[0].host,
-          database_port: e.connections[0].port,
-          name: e.connections[0].name,
-          keepAlive: e.connections[0].pass,
-        });
-      })
-      .catch((e: any) => {
-        console.log("Failed to connect database!");
-        logger.error("error", e);
-      });
-  }
-  public connect() {
+
+  private async databaseConnection() {
     try {
-      this.databaseConnection();
-    } catch (error: any) {
-      throw new Error(error.message);
+      const connection = await mongoose.connect(this.dbUri);
+      logger.log("info", "Successfully connected to the database", {
+        hostName: connection.connections[0].host,
+        database_port: connection.connections[0].port,
+        name: connection.connections[0].name,
+        keepAlive: connection.connections[0].pass,
+      });
+    } catch (error) {
+      logger.error("error", error);
+      throw new Error("Failed to connect to the database");
     }
+  }
+
+  public connect() {
+    this.databaseConnection();
   }
 }
