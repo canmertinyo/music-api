@@ -2,24 +2,20 @@ import express, { Application } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
-import config from "./config/config";
 import { logger } from "./core/logger";
 import { expressRouter } from "./routes/index";
 
 export class ExpressServer {
   public app: Application;
-  public path: string = "/api/v1/";
+  public path = "/api/v1/";
+
   constructor(private readonly port: number) {
     this.app = express();
-  }
-
-  public start() {
     this.createServer();
     this.routePaths();
-    this.listen();
   }
 
-  public createServer(): void {
+  private createServer(): void {
     this.app.use(express.json({ limit: "10mb" }));
     this.app.use(
       express.urlencoded({
@@ -33,14 +29,14 @@ export class ExpressServer {
     this.app.use(compression());
   }
 
-  public routePaths(): void {
+  private routePaths(): void {
     this.app.use(this.path, expressRouter);
   }
 
-  public listen() {
-    return this.app.listen(config.port, () => {
+  public start() {
+    this.app.listen(this.port, () => {
       console.log(`Server is started on port ${this.port}`);
-      logger.log("info", `LOG : Server is started`);
+      logger.log("info", "LOG: Server is started");
     });
   }
 }
