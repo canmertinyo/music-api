@@ -43,8 +43,7 @@ export class ExpressServer {
 
   public start() {
     this.app.listen(this.port, async () => {
-      console.log(`Server is started on port ${this.port}`);
-      logger.log('info', 'LOG: Server is started');
+      logger.log('info', `The server is started on port ${this.port}`);
     });
   }
 }
